@@ -1,0 +1,9 @@
+#!/bin/ruby
+
+require_relative '../app.rb'
+
+# Currently only one argument allowed.
+raise 'Wrong number of arguments' if ARGV.count != 1
+
+# Try to fetch the worker and enqueue it.
+Object.const_get(ARGV[0]).perform_async
